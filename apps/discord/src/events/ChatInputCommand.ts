@@ -1,4 +1,10 @@
-import { ClientEvents, Events, Interaction } from 'discord.js';
+import {
+  ClientEvents,
+  Colors,
+  EmbedBuilder,
+  Events,
+  Interaction,
+} from 'discord.js';
 import Client from '../structures/Client';
 import Event from '../structures/Event';
 
@@ -19,7 +25,13 @@ export default class InteractionCreateEvent extends Event {
       await command.execute(interaction);
     } catch (error) {
       await interaction.reply({
-        content: 'There was an error',
+        embeds: [
+          new EmbedBuilder()
+            .setColor(Colors.Red)
+            .setTitle('Error')
+            .setDescription(error.message)
+            .setTimestamp(),
+        ],
         ephemeral: true,
       });
     }

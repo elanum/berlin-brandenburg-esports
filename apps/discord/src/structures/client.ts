@@ -30,21 +30,10 @@ export default class Client extends DiscordClient {
     console.log('Register Commands');
     const body: RESTPostAPIApplicationCommandsJSONBody[] = [];
 
-    commands.forEach((command, i) => {
-      if (!command.builder.name)
-        console.error(
-          `Command [${i + 1}/${commands.length}] "${
-            command.constructor.name
-          }" has no name`
-        );
-      else {
+    commands.forEach((command) => {
+      if (command.builder.name) {
         this.commands.set(command.builder.name, command);
         body.push(command.builder.toJSON());
-        console.log(
-          `Command [${i + 1}/${commands.length}] "${
-            command.builder.name
-          }" registered`
-        );
       }
     });
 
@@ -80,7 +69,5 @@ export default class Client extends DiscordClient {
 
   private async registerEvents(): Promise<void> {
     await Promise.all(events.map((event) => this.handleEvent(event)));
-    console.log(`Registered ${events.length} Events`);
-    // events.forEach((event) => this.handleEvent(event));
   }
 }
