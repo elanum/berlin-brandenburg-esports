@@ -1,3 +1,4 @@
+import { TwitterApi } from '@bbe/apis';
 import {
   ActionRowBuilder,
   CommandInteraction,
@@ -9,6 +10,7 @@ import {
   TextInputStyle,
 } from 'discord.js';
 import Command from '../structures/Command';
+import { errorMessage, successMessage } from '../utils/Messages';
 
 export default class TwitterCommand extends Command {
   public builder: SlashCommandBuilder = new SlashCommandBuilder()
@@ -16,7 +18,7 @@ export default class TwitterCommand extends Command {
     .setDescription('send tweet to twitter');
 
   private get name(): string {
-    return 'twitter';
+    return 'tweet';
   }
 
   public async execute(interaction: CommandInteraction): Promise<void> {
@@ -39,6 +41,28 @@ export default class TwitterCommand extends Command {
 
   public async submit(interaction: ModalSubmitInteraction): Promise<void> {
     const content = interaction.fields.getTextInputValue('tweet-content');
-    await interaction.reply(content);
+
+    try {
+      const tweet = await TwitterApi.sendTweet(content);
+      await interaction.reply({
+        embeds: [
+          successMessage
+            .setDescription(
+              `${TwitterApi.getTweetUrl(tweet)}\n\`\`\`${
+                tweet.full_text || tweet.text
+              }\`\`\``
+            )
+            .setFooter({
+              text: tweet.user.name,
+              iconURL: tweet.user.profile_image_url_https,
+            }),
+        ],
+      });
+    } catch (error) {
+      await interaction.reply({
+        embeds: [errorMessage.setDescription(error.message)],
+        ephemeral: true,
+      });
+    }
   }
 }

@@ -1,12 +1,7 @@
-import {
-  ClientEvents,
-  Colors,
-  EmbedBuilder,
-  Events,
-  Interaction,
-} from 'discord.js';
+import { ClientEvents, Events, Interaction } from 'discord.js';
 import Client from '../structures/Client';
 import Event from '../structures/Event';
+import { errorMessage } from '../utils/Messages';
 
 export default class ModalSubmitEvent extends Event {
   public name: keyof ClientEvents = Events.InteractionCreate;
@@ -26,13 +21,7 @@ export default class ModalSubmitEvent extends Event {
       await command.submit(interaction);
     } catch (error) {
       await interaction.reply({
-        embeds: [
-          new EmbedBuilder()
-            .setColor(Colors.Red)
-            .setTitle('Error')
-            .setDescription(error.message)
-            .setTimestamp(),
-        ],
+        embeds: [errorMessage.setDescription(error.message)],
         ephemeral: true,
       });
     }
