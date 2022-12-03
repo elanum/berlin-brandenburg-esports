@@ -1,9 +1,4 @@
-import InteractionCreateEvent from './ChatInputCommand';
 import ClientReadyEvent from './ClientReady';
-import ModalSubmitEvent from './ModalSubmit';
+import InteractionCreateEvent from './InteractionCreate';
 
-export default [
-  new InteractionCreateEvent(),
-  new ClientReadyEvent(),
-  new ModalSubmitEvent(),
-];
+export default [new InteractionCreateEvent(), new ClientReadyEvent()];

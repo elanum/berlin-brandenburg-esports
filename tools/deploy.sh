@@ -54,7 +54,7 @@ then
   pm2 reload "@$enviroment/dashboard"
 fi
 
-if [[ "$apps" == *"discord"* ]]
+if [[ "$apps" == *"discord"* ]] && [ "$enviroment" = "production" ]
 then
   echo "Build Discord"
   NX_BRANCH="$branch" npx nx build discord --configuration=production

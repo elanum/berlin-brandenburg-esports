@@ -1,7 +1,7 @@
 import { TwitterApi } from '@bbe/apis';
 import {
   ActionRowBuilder,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   ModalActionRowComponentBuilder,
   ModalBuilder,
   ModalSubmitInteraction,
@@ -20,16 +20,23 @@ export default class TwitterCommand extends Command {
         .setDescription(
           'Send a tweet directly to the @bbesports_ev Twitter Account'
         )
+        .addStringOption((option) =>
+          option.setName('content').setDescription('Content of the tweet')
+        )
     );
   }
 
-  public async execute(interaction: CommandInteraction): Promise<void> {
+  public async execute(
+    interaction: ChatInputCommandInteraction
+  ): Promise<void> {
+    const value = interaction.options.getString('content') ?? '';
     const modal = new ModalBuilder()
       .setCustomId(this.builder.name)
       .setTitle('Tweet');
     const textInput = new TextInputBuilder()
       .setCustomId('tweet-content')
       .setLabel('Content')
+      .setValue(value)
       .setStyle(TextInputStyle.Paragraph)
       .setMaxLength(280)
       .setRequired(true);
