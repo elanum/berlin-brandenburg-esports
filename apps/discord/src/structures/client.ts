@@ -9,11 +9,13 @@ import {
 import commands from '../commands';
 import { env } from '../env';
 import events from '../events';
+import Logger from '../utils/Logger';
 import Command from './Command';
 import Event from './Event';
 
 export default class Client extends DiscordClient {
   public commands: Collection<string, Command>;
+  private logger = new Logger('Client');
 
   public constructor() {
     super({ intents: [GatewayIntentBits.Guilds] });
@@ -27,7 +29,7 @@ export default class Client extends DiscordClient {
   }
 
   private async registerCommands(): Promise<void> {
-    console.log('Register Commands');
+    this.logger.log(`Try to register ${commands.length} commands`);
     const body: RESTPostAPIApplicationCommandsJSONBody[] = [];
 
     commands.forEach((command) => {
@@ -44,12 +46,9 @@ export default class Client extends DiscordClient {
         Routes.applicationGuildCommands(env.CLIENT_ID, '983654643416584296'),
         { body }
       );
-      console.log(
-        `Successfully registered ${body.length}/${commands.length} commands`
-      );
+      this.logger.log(`Successfully registered ${body.length} commands`);
     } catch (error) {
-      // And of course, make sure you catch and log any errors!
-      console.error(error);
+      this.logger.error(error.message);
     }
   }
 
@@ -58,9 +57,7 @@ export default class Client extends DiscordClient {
       try {
         await event.execute(this, ...args);
       } catch (error) {
-        console.error(
-          `An error occurred in '${event.name}' event.\n${error}\n`
-        );
+        this.logger.error(error.message);
       }
     };
 
@@ -69,5 +66,6 @@ export default class Client extends DiscordClient {
 
   private async registerEvents(): Promise<void> {
     await Promise.all(events.map((event) => this.handleEvent(event)));
+    this.logger.log(`Successfully registered ${events.length} events`);
   }
 }

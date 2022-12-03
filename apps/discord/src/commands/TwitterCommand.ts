@@ -13,16 +13,20 @@ import Command from '../structures/Command';
 import { errorMessage, successMessage } from '../utils/Messages';
 
 export default class TwitterCommand extends Command {
-  public builder: SlashCommandBuilder = new SlashCommandBuilder()
-    .setName(this.name)
-    .setDescription('send tweet to twitter');
-
-  private get name(): string {
-    return 'tweet';
+  public constructor() {
+    super(
+      new SlashCommandBuilder()
+        .setName('twitter')
+        .setDescription(
+          'Send a tweet directly to the @bbesports_ev Twitter Account'
+        )
+    );
   }
 
   public async execute(interaction: CommandInteraction): Promise<void> {
-    const modal = new ModalBuilder().setCustomId(this.name).setTitle('Tweet');
+    const modal = new ModalBuilder()
+      .setCustomId(this.builder.name)
+      .setTitle('Tweet');
     const textInput = new TextInputBuilder()
       .setCustomId('tweet-content')
       .setLabel('Content')

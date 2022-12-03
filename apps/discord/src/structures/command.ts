@@ -3,9 +3,14 @@ import {
   ModalSubmitInteraction,
   SlashCommandBuilder,
 } from 'discord.js';
+import Logger from '../utils/Logger';
 
 export default abstract class Command {
-  public abstract builder: SlashCommandBuilder;
+  protected logger: Logger;
+
+  public constructor(public builder: SlashCommandBuilder) {
+    this.logger = new Logger(builder.name);
+  }
 
   public submit?(interaction: ModalSubmitInteraction): Promise<void>;
 

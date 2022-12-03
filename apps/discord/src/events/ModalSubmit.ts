@@ -1,10 +1,12 @@
-import { ClientEvents, Events, Interaction } from 'discord.js';
+import { Events, Interaction } from 'discord.js';
 import Client from '../structures/Client';
 import Event from '../structures/Event';
 import { errorMessage } from '../utils/Messages';
 
 export default class ModalSubmitEvent extends Event {
-  public name: keyof ClientEvents = Events.InteractionCreate;
+  public constructor() {
+    super(Events.InteractionCreate);
+  }
 
   public async execute(
     client: Client,
@@ -18,6 +20,9 @@ export default class ModalSubmitEvent extends Event {
       if (!command || !command.submit)
         throw new Error('Submit handler is missing');
 
+      this.logger.log(
+        `Execute /${command.builder.name} submit to ${interaction.user.tag}`
+      );
       await command.submit(interaction);
     } catch (error) {
       await interaction.reply({

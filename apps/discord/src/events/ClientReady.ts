@@ -1,11 +1,13 @@
-import { ClientEvents, Events } from 'discord.js';
+import { Events } from 'discord.js';
 import Client from '../structures/Client';
 import Event from '../structures/Event';
 
 export default class ClientReadyEvent extends Event {
-  public name: keyof ClientEvents = Events.ClientReady;
+  public constructor() {
+    super(Events.ClientReady);
+  }
 
   public async execute(client: Client): Promise<void> {
-    console.log(`Ready! Logged in as ${client.user.tag}`);
+    this.logger.log(`Logged in as ${client.user.tag}`);
   }
 }
