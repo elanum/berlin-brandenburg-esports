@@ -1,3 +1,1 @@
-
-
 # Berlin Brandenburg eSports
