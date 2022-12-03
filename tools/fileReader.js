@@ -17,7 +17,7 @@ function calcPath(relativePath) {
 }
 
 function getMissingEnvs(envs) {
-  return vars.reduce(
+  return [...vars, 'NODE_ENV'].reduce(
     (prev, curr) =>
       !Object.keys(envs).includes(curr) ? [...prev, curr] : prev,
     []
