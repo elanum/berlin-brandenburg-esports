@@ -43,7 +43,7 @@ export default class Client extends DiscordClient {
 
     try {
       await rest.put(
-        Routes.applicationGuildCommands(env.CLIENT_ID, '983654643416584296'),
+        Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID),
         { body }
       );
       this.logger.log(`Successfully registered ${body.length} commands`);
