@@ -8,7 +8,12 @@ import Logger from '../utils/Logger';
 export default abstract class Command {
   protected logger: Logger;
 
-  public constructor(public builder: SlashCommandBuilder) {
+  public constructor(
+    public builder: Omit<
+      SlashCommandBuilder,
+      'addSubcommand' | 'addSubcommandGroup'
+    >
+  ) {
     this.logger = new Logger(builder.name);
   }
 
