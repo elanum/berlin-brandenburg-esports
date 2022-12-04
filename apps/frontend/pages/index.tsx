@@ -86,7 +86,7 @@ const HomePage: NextPage = () => {
         <p>Folge uns auf unseren Social Media Kanälen um auf dem aktuellen Stand zu sein:</p>
         <div className={classNames('flex', 'text-2xl', 'gap-6')}>
           {links.map(({ Icon, href, label }) => (
-            <a title={label} href={href} key={`social-${href}`} target="_blank" rel="noreferrer noreferrer">
+            <a title={label} href={href} key={`social-${href}`} target="_blank" rel="noreferrer noreferrer nofollow">
               <Icon />
             </a>
           ))}

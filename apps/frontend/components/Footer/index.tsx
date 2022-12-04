@@ -2,18 +2,23 @@ import classNames from 'classnames';
 import Link from 'next/link';
 
 const Footer = (): JSX.Element => {
-  const links = ['Beitragsordnung', 'Satzung'];
+  const links: Array<{ label: string; href: string }> = [
+    { label: 'Beitragsordnung', href: '/docs/bbe-beitragsordnung.pdf' },
+    { label: 'Satzung', href: '/docs/bbe-satzung.pdf' },
+  ];
 
   return (
     <div className={classNames('flex', 'flex-col', 'gap-4', 'items-center', 'py-6', 'text-center')}>
       <div className={classNames('flex', 'divide-x', 'text-sm')}>
-        {links.map((link) => (
+        {links.map(({ label, href }) => (
           <Link
-            key={`footer-link-${link}`}
-            href={`/${link.toLowerCase()}`}
+            key={`footer-link-${href}`}
+            href={href}
+            download
+            target="_blank"
             className={classNames('px-2', 'hover:text-primary-500', 'transition-colors')}
           >
-            {link}
+            {label}
           </Link>
         ))}
       </div>
