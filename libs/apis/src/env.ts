@@ -1,7 +1,0 @@
-export const env = {
-  NODE_ENV: process.env.NODE_ENV,
-  TWITTER_APP_KEY: process.env.NX_TWITTER_APP_KEY || '',
-  TWITTER_APP_SECRET: process.env.NX_TWITTER_APP_SECRET || '',
-  TWITTER_ACCESS_TOKEN: process.env.NX_TWITTER_ACCESS_TOKEN || '',
-  TWITTER_ACCESS_TOKEN_SECRET: process.env.NX_TWITTER_ACCESS_TOKEN_SECRET || '',
-};

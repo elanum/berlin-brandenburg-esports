@@ -2,15 +2,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const fs = require('fs');
 
-const vars = [
-  'DISCORD_BOT_TOKEN',
-  'DISCORD_BOT_APPLICATION_ID',
-  'DISCORD_GUILD_ID',
-  'TWITTER_APP_KEY',
-  'TWITTER_APP_SECRET',
-  'TWITTER_ACCESS_TOKEN',
-  'TWITTER_ACCESS_TOKEN_SECRET',
-].map((env) => `NX_${env}`);
+const vars = ['DISCORD_BOT_TOKEN', 'DISCORD_BOT_APPLICATION_ID', 'DISCORD_GUILD_ID'].map((env) => `NX_${env}`);
 
 function calcPath(relativePath) {
   return path.join(__dirname, relativePath);

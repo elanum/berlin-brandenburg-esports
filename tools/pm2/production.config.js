@@ -30,12 +30,5 @@ module.exports = {
     //     PM2_SERVE_HOMEPAGE: './index.html',
     //   },
     // },
-    {
-      name: '@production/discord',
-      cwd: calcPath('../dist/apps/discord'),
-      script: './main.js',
-      log_date_format: 'YYYY-MM-DD HH:mm Z',
-      env: getEnvVariables(),
-    },
   ],
 };
