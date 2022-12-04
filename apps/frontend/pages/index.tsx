@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
+import BaseTemplate from '../templates/BaseTemplate';
 
 const HomePage: NextPage = () => {
-  return <div className="continer text-primary">Hello World</div>;
+  return <BaseTemplate>Hello World</BaseTemplate>;
 };
 
 export default HomePage;

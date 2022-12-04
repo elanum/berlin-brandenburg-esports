@@ -19,7 +19,7 @@ class MyDocument extends Document {
 
   public render(): JSX.Element {
     return (
-      <Html lang="de" className={classNames('text-white', 'bg-gray-dark')}>
+      <Html lang="de" className={classNames('text-white', 'bg-gray-900')}>
         <Head>
           <link
             rel="icon"
