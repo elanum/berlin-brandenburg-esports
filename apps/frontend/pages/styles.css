@@ -1,0 +1,11 @@
+@import 'https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Poppins:wght@300;600&display=swap';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply bg-primary-500 rounded uppercase font-play font-normal px-2 py-1 hover:bg-primary-600 transition-colors text-center;
+  }
+}

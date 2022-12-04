@@ -17,15 +17,11 @@ function calcPath(relativePath) {
 }
 
 function getMissingEnvs(envs) {
-  return [...vars, 'NODE_ENV'].reduce(
-    (prev, curr) =>
-      !Object.keys(envs).includes(curr) ? [...prev, curr] : prev,
-    []
-  );
+  return [...vars, 'NODE_ENV'].reduce((prev, curr) => (!Object.keys(envs).includes(curr) ? [...prev, curr] : prev), []);
 }
 
-function getEnvVariables(envPath) {
-  const variables = dotenv.parse(fs.readFileSync(calcPath(envPath)));
+function getEnvVariables() {
+  const variables = dotenv.parse(fs.readFileSync(calcPath('../.env')));
   const missing = getMissingEnvs(variables);
 
   if (missing.length) {

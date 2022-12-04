@@ -42,10 +42,7 @@ export default class Client extends DiscordClient {
     const rest = new REST({ version: '10' }).setToken(env.TOKEN);
 
     try {
-      await rest.put(
-        Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID),
-        { body }
-      );
+      await rest.put(Routes.applicationGuildCommands(env.CLIENT_ID, env.GUILD_ID), { body });
       this.logger.log(`Successfully registered ${body.length} commands`);
     } catch (error) {
       this.logger.error(error.message);

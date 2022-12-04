@@ -10,20 +10,12 @@ export default class Logger {
   private format = winston.format.combine(
     winston.format.label({ label: this.name }),
     winston.format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
-    winston.format.printf(
-      ({ timestamp, message, label }) => `${timestamp} [${label}] ${message}`
-    )
+    winston.format.printf(({ timestamp, message, label }) => `${timestamp} [${label}] ${message}`)
   );
 
-  private consoleFormat = winston.format.combine(
-    winston.format.colorize({ all: true }),
-    this.format
-  );
+  private consoleFormat = winston.format.combine(winston.format.colorize({ all: true }), this.format);
 
-  private fileFormat = winston.format.combine(
-    winston.format.uncolorize(),
-    this.format
-  );
+  private fileFormat = winston.format.combine(winston.format.uncolorize(), this.format);
 
   public constructor(private name: string) {
     this.logger = winston.createLogger({
