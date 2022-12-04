@@ -17,22 +17,14 @@ export default class TwitterCommand extends Command {
     super(
       new SlashCommandBuilder()
         .setName('twitter')
-        .setDescription(
-          'Send a tweet directly to the @bbesports_ev Twitter Account'
-        )
-        .addStringOption((option) =>
-          option.setName('content').setDescription('Content of the tweet')
-        )
+        .setDescription('Send a tweet directly to the @bbesports_ev Twitter Account')
+        .addStringOption((option) => option.setName('content').setDescription('Content of the tweet'))
     );
   }
 
-  public async execute(
-    interaction: ChatInputCommandInteraction
-  ): Promise<void> {
+  public async execute(interaction: ChatInputCommandInteraction): Promise<void> {
     const value = interaction.options.getString('content') ?? '';
-    const modal = new ModalBuilder()
-      .setCustomId(this.builder.name)
-      .setTitle('Tweet');
+    const modal = new ModalBuilder().setCustomId(this.builder.name).setTitle('Tweet');
     const textInput = new TextInputBuilder()
       .setCustomId('tweet-content')
       .setLabel('Content')
@@ -41,10 +33,7 @@ export default class TwitterCommand extends Command {
       .setMaxLength(280)
       .setRequired(true);
 
-    const actionRow =
-      new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(
-        textInput
-      );
+    const actionRow = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(textInput);
 
     modal.addComponents(actionRow);
     await interaction.showModal(modal);
@@ -58,11 +47,7 @@ export default class TwitterCommand extends Command {
       await interaction.reply({
         embeds: [
           successMessage
-            .setDescription(
-              `${TwitterApi.getTweetUrl(tweet)}\n\`\`\`${
-                tweet.full_text || tweet.text
-              }\`\`\``
-            )
+            .setDescription(`${TwitterApi.getTweetUrl(tweet)}\n\`\`\`${tweet.full_text || tweet.text}\`\`\``)
             .setFooter({
               text: tweet.user.name,
               iconURL: tweet.user.profile_image_url_https,

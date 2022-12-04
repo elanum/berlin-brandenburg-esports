@@ -21,11 +21,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
           cardType: 'summary',
         }}
       />
-      <NextNProgress
-        color="#e8175d"
-        options={{ showSpinner: false }}
-        height={2}
-      />
+      <NextNProgress color="#e8175d" options={{ showSpinner: false }} height={2} />
       <main className={classNames('flex', 'flex-col', 'min-h-screen')}>
         <Component {...pageProps} />
       </main>

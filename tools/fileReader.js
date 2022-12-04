@@ -17,11 +17,7 @@ function calcPath(relativePath) {
 }
 
 function getMissingEnvs(envs) {
-  return [...vars, 'NODE_ENV'].reduce(
-    (prev, curr) =>
-      !Object.keys(envs).includes(curr) ? [...prev, curr] : prev,
-    []
-  );
+  return [...vars, 'NODE_ENV'].reduce((prev, curr) => (!Object.keys(envs).includes(curr) ? [...prev, curr] : prev), []);
 }
 
 function getEnvVariables(envPath) {

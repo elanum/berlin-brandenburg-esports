@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .button {
+    @apply bg-primary-500 rounded uppercase font-play font-normal px-2 py-1 hover:bg-primary-600 transition-colors text-center;
+  }
+}

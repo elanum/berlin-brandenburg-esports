@@ -1,8 +1,4 @@
-import {
-  SendTweetV1Params,
-  TweetV1,
-  TwitterApi as TwitterClient,
-} from 'twitter-api-v2';
+import { SendTweetV1Params, TweetV1, TwitterApi as TwitterClient } from 'twitter-api-v2';
 import { env } from '../env';
 
 export class TwitterApi {
@@ -13,10 +9,7 @@ export class TwitterApi {
     accessSecret: env.TWITTER_ACCESS_TOKEN_SECRET,
   });
 
-  public static async sendTweet(
-    content: string,
-    payload?: Partial<SendTweetV1Params>
-  ): Promise<TweetV1> {
+  public static async sendTweet(content: string, payload?: Partial<SendTweetV1Params>): Promise<TweetV1> {
     if (env.NODE_ENV !== 'production') {
       return {
         text: content,
@@ -24,8 +17,7 @@ export class TwitterApi {
         id_str: '1447652040117731334',
         user: {
           name: 'Developer',
-          profile_image_url_https:
-            'https://cdn.discordapp.com/embed/avatars/0.png',
+          profile_image_url_https: 'https://cdn.discordapp.com/embed/avatars/0.png',
           id_str: '1440711912291913732',
         },
       } as TweetV1;
