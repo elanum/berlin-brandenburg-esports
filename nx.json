@@ -35,7 +35,7 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },
-  "defaultProject": "discord",
+  "defaultProject": "frontend",
   "generators": {
     "@nrwl/react": {
       "application": {

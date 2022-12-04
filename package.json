@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "dev": "nx run-many --target=serve --all=true",
+    "dev": "nx run-many --target=serve --projects=frontend",
     "lint": "nx run-many --target=lint --all=true",
     "prepare": "husky install"
   },
@@ -61,6 +61,7 @@
     "discord.js": "^14.6.0",
     "lodash": "^4.17.21",
     "next": "13.0.0",
+    "next-seo": "^5.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "regenerator-runtime": "0.13.7",

@@ -1,14 +1,26 @@
+import classNames from 'classnames';
+import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
 import './styles.css';
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const title = 'Berlin-Brandenburg eSports e.V.';
+  const description = 'We are ready';
+
   return (
     <>
-      <Head>
-        <title>Welcome to frontend!</title>
-      </Head>
-      <main className="app">
+      <DefaultSeo
+        titleTemplate={`%s | BBE`}
+        defaultTitle={title}
+        description={description}
+        openGraph={{ type: 'website', title, description }}
+        twitter={{
+          site: '@bbesports_ev',
+          handle: '@bbesports_ev',
+          cardType: 'summary',
+        }}
+      />
+      <main className={classNames('flex', 'flex-col', 'min-h-screen')}>
         <Component {...pageProps} />
       </main>
     </>
