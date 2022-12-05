@@ -3,7 +3,7 @@ const { calcPath, getEnvVariables } = require('../fileReader');
 module.exports = {
   apps: [
     {
-      name: '@dev/frontend',
+      name: '@production/frontend',
       cwd: calcPath('../dist/apps/frontend'),
       script: 'npm',
       args: 'run start',
@@ -11,14 +11,14 @@ module.exports = {
       env: getEnvVariables(),
     },
     // {
-    //   name: '@dev/backend',
+    //   name: '@production/backend',
     //   cwd: calcPath('../../dist/apps/backend'),
     //   script: 'main.js',
     //   log_date_format: 'YYYY-MM-DD HH:mm Z',
     //   env: getEnvVariables(),
     // },
     // {
-    //   name: '@dev/dashboard',
+    //   name: '@production/dashboard',
     //   cwd: calcPath('../dist/apps/dashboard'),
     //   script: 'serve',
     //   log_date_format: 'YYYY-MM-DD HH:mm Z',
