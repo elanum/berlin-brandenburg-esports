@@ -6,6 +6,10 @@
 
 @layer components {
   .button {
-    @apply bg-primary-500 rounded uppercase font-play font-normal px-2 py-1 hover:bg-primary-600 transition-colors text-center;
+    @apply font-play font-normal text-center px-2 py-1 rounded;
+
+    &-contained {
+      @apply bg-primary-500 uppercase hover:bg-primary-600 transition-colors;
+    }
   }
 }

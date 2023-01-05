@@ -22,7 +22,7 @@ const AboutPage: NextPage = () => {
   ];
 
   return (
-    <BaseTemplate>
+    <BaseTemplate title="Über Uns">
       {sections.map(({ headline, content }, i) => (
         <section key={headline} className={classNames('p-6', 'border-b', 'border-primary-500', 'last:border-b-0')}>
           <h1 className={classNames('text-primary-500', 'font-semibold', 'text-lg', 'mb-2')}>{headline}</h1>

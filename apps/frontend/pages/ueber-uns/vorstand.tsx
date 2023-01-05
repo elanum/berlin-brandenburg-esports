@@ -43,7 +43,7 @@ const BoardPage: NextPage = () => {
   ];
 
   return (
-    <BaseTemplate>
+    <BaseTemplate title="Über den Vorstand">
       {sections.map(({ headline, subline, content }, i) => (
         <section key={headline} className={classNames('p-6', 'border-b', 'border-primary-500', 'last:border-b-0')}>
           <h1 className={classNames('text-primary-500', 'font-semibold', 'text-lg', 'mb-1')}>{headline}</h1>
