@@ -6,7 +6,6 @@ export interface Route {
 
 const routes: Route[] = [
   { label: 'Home', href: '/' },
-  { label: 'News', href: '/news' },
   {
     label: 'Über Uns',
     href: '/ueber-uns',
@@ -15,7 +14,6 @@ const routes: Route[] = [
       { label: 'Über den Vorstand', href: '/ueber-uns/vorstand' },
     ],
   },
-  { label: 'Kontakt', href: '/kontakt' },
 ];
 
 export default routes;
