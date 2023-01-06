@@ -4,8 +4,9 @@ import { ReactNode } from 'react';
 import Footer from '../components/Footer';
 import JoinUs from '../components/Header/JoinUs';
 import Logo from '../components/Header/Logo';
+import Navbar from '../components/Header/Navigation/Navbar';
 
-interface BaseTemplateProps extends Pick<NextSeoProps, 'title' | 'description'> {
+interface BaseTemplateProps extends Pick<NextSeoProps, 'title' | 'description' | 'noindex'> {
   children: ReactNode;
   className?: string;
 }
@@ -29,20 +30,23 @@ const BaseTemplate = ({ className, children, ...seo }: BaseTemplateProps): JSX.E
   return (
     <>
       <NextSeo {...generateSeo(seo)} />
-      <header
-        className={classNames(
-          'container',
-          'pt-6',
-          'flex',
-          'flex-col',
-          'gap-4',
-          'md:flex-row',
-          'justify-between',
-          'items-center'
-        )}
-      >
-        <Logo />
-        <JoinUs />
+      <header>
+        <div
+          className={classNames(
+            'container',
+            'py-6',
+            'flex',
+            'flex-col',
+            'gap-4',
+            'md:flex-row',
+            'justify-between',
+            'items-center'
+          )}
+        >
+          <Logo />
+          <JoinUs />
+        </div>
+        <Navbar />
       </header>
       <main className={classNames('flex-grow', 'relative', 'bg-gray-800', 'container', 'my-6', className)}>
         {children}

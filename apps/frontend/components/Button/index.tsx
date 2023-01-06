@@ -2,26 +2,26 @@ import classNames from 'classnames';
 import Link, { LinkProps as NextLinkProps } from 'next/link';
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-type LinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextLinkProps> & NextLinkProps;
-type ButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
+type HTMLLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextLinkProps> & NextLinkProps;
+type HTMLButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
   href?: never;
 };
 
-type Props = LinkProps | ButtonProps;
+export type ButtonProps = (HTMLLinkProps | HTMLButtonProps) & { variant?: 'contained' | 'text' };
 
-const Button = ({ className, href, children, ...props }: Props): JSX.Element => {
-  const styles = classNames('button', className);
+const Button = ({ className, href, children, variant = 'contained', ...props }: ButtonProps): JSX.Element => {
+  const styles = classNames('button', { 'button-contained': variant === 'contained' }, className);
 
   if (href) {
     return (
-      <Link href={href} className={styles} {...(props as LinkProps)}>
+      <Link href={href} className={styles} {...(props as HTMLLinkProps)}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type="button" className={styles} {...(props as ButtonProps)}>
+    <button type="button" className={styles} {...(props as HTMLButtonProps)}>
       {children}
     </button>
   );

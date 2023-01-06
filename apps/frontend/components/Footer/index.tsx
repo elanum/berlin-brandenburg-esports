@@ -7,6 +7,8 @@ const Footer = (): JSX.Element => {
     { label: 'Satzung', href: '/docs/bbe-satzung.pdf' },
   ];
 
+  const year = new Date().getFullYear();
+
   return (
     <div className={classNames('flex', 'flex-col', 'gap-4', 'items-center', 'py-6', 'text-center')}>
       <div className={classNames('flex', 'divide-x', 'text-sm')}>
@@ -22,7 +24,7 @@ const Footer = (): JSX.Element => {
           </Link>
         ))}
       </div>
-      <span className={classNames('text-xs', 'text-gray-500')}>&copy; 2022 Berlin-Brandenburg eSports e.V.</span>
+      <span className={classNames('text-xs', 'text-gray-500')}>&copy; {year} Berlin-Brandenburg eSports e.V.</span>
     </div>
   );
 };
