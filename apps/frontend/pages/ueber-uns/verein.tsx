@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { NextPage } from 'next';
 import BaseTemplate from '../../templates/BaseTemplate';
 
-const AboutPage: NextPage = () => {
+const SocietyPage: NextPage = () => {
   const sections: Array<{ headline: string; content: string }> = [
     {
       headline: 'Geschichte',
@@ -33,4 +33,4 @@ const AboutPage: NextPage = () => {
   );
 };
 
-export default AboutPage;
+export default SocietyPage;

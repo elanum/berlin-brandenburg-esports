@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @layer components {
   .button {
     @apply font-play font-normal text-center px-2 py-1 rounded;
