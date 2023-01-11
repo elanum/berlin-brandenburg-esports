@@ -62,10 +62,6 @@ const BoardPage: NextPage = () => {
         <section
           key={headline}
           className={classNames(
-            'p-6',
-            'border-b',
-            'border-primary-500',
-            'last:border-b-0',
             'grid',
             'md:grid-flow-col',
             'justify-items-center',
@@ -86,12 +82,10 @@ const BoardPage: NextPage = () => {
           )}
 
           <div>
-            <h1 className={classNames('text-primary-500', 'font-semibold', 'text-lg', 'mb-1')}>{headline}</h1>
-            <h2 className={classNames('text-gray-300', 'italic', 'mb-2')}>{subline}</h2>
+            <h1>{headline}</h1>
+            <h2 className={classNames('text-gray-300', 'italic')}>{subline}</h2>
             {content.map((c, i) => (
-              <p key={`headline-content-${i}`} className={classNames('mb-2')}>
-                {c}
-              </p>
+              <p key={`headline-content-${i}`}>{c}</p>
             ))}
           </div>
         </section>

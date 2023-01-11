@@ -8,6 +8,52 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
+
+  p {
+    @apply mb-2;
+  }
+
+  section {
+    @apply p-6 border-b border-primary-500 last:border-b-0;
+  }
+
+  ul {
+    @apply list-disc list-outside ml-4 my-2;
+
+    &.unstyled {
+      @apply ml-0 my-0 list-none list-inside;
+    }
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-play uppercase text-primary-500 mb-4 text-lg;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  hgroup {
+    @apply mb-4;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mb-0;
+    }
+  }
 }
 
 @layer components {

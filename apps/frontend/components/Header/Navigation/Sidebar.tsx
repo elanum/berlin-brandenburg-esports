@@ -46,7 +46,7 @@ const SubRoute = ({ href, label: title, subroutes, setOpen: setSidebar }: SubRou
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ type: 'keyframes' }}
-            className={classNames('mt-2', 'ml-2', 'overflow-hidden')}
+            className={classNames('unstyled', '!mt-2', '!ml-2', 'overflow-hidden')}
           >
             {subroutes.map(({ href, label }) => (
               <li
@@ -111,11 +111,11 @@ const Sidebar = ({ open, setOpen }: SidebarProps): JSX.Element => {
               <IoMdClose />
             </IconButton>
 
-            <ul>
+            <ul className={classNames('unstyled')}>
               {routes.map(({ href, label, subroutes = [] }) => (
                 <li
                   key={`sidebar-link-${label}`}
-                  className={classNames('flex', 'w-full', 'uppercase', 'font-play', 'text-lg')}
+                  className={classNames('flex', 'w-full', 'uppercase', 'font-play', 'text-lg', 'm-0')}
                 >
                   {!subroutes.length ? (
                     <Link

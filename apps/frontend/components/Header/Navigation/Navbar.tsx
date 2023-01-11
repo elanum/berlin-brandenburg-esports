@@ -43,13 +43,21 @@ const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
               'z-10',
               'bg-gray-700',
               'shadow-lg',
-              'overflow-hidden'
+              'overflow-hidden',
+              'unstyled'
             )}
           >
             {subroutes.map(({ href, label }) => (
               <li
                 key={`sidebar-link-${title}-${label}`}
-                className={classNames('flex', 'w-full', 'text-md', 'hover:text-primary-500', 'transition-colors')}
+                className={classNames(
+                  'flex',
+                  'w-full',
+                  'text-md',
+                  'hover:text-primary-500',
+                  'transition-colors',
+                  'mb-0'
+                )}
               >
                 <Link
                   href={href}
@@ -73,9 +81,9 @@ const Navbar = (): JSX.Element => {
 
   return (
     <nav className={classNames('w-full', 'bg-gray-800', 'hidden', 'md:block')}>
-      <ul className={classNames('container', 'flex', 'justify-between')}>
+      <ul className={classNames('container', 'flex', 'justify-between', 'unstyled', '!mx-auto')}>
         {routes.map(({ href, label, subroutes = [] }) => (
-          <li key={`navbar-link-${label}`} className={classNames('w-full', 'flex')}>
+          <li key={`navbar-link-${label}`} className={classNames('w-full', 'flex', 'mb-0')}>
             {!subroutes.length ? (
               <Link
                 className={classNames(
