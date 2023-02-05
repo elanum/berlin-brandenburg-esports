@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { NextPage } from 'next';
-import Image from 'next/image';
 import { IconType } from 'react-icons';
 import { FaDiscord, FaEnvelope, FaInstagram, FaTwitch, FaTwitter } from 'react-icons/fa';
 import { IoIosConstruct } from 'react-icons/io';
@@ -17,24 +16,13 @@ const HomePage: NextPage = () => {
   ];
 
   return (
-    <BaseTemplate className={classNames('flex', 'flex-col')}>
-      <figure className={classNames('relative', 'pt-6')}>
-        <Image
-          src={PlayerImage}
-          alt="Player"
-          height={300}
-          priority
-          className={classNames(
-            'object-cover',
-            'w-full',
-            'h-96',
-            'border-y-2',
-            'border-primary-500',
-            '-scale-x-100',
-            'object-[30%_30%]'
-          )}
-        />
-        <div className={classNames('md:absolute', 'inset-0', 'flex', 'items-center')}>
+    <BaseTemplate
+      className={classNames('flex', 'flex-col')}
+      hero={{
+        ...PlayerImage,
+        alt: 'Willkommen',
+        className: classNames('-scale-x-100', 'object-[30%_30%]'),
+        content: (
           <div
             className={classNames(
               'p-10',
@@ -59,8 +47,9 @@ const HomePage: NextPage = () => {
               zu schaffen.
             </p>
           </div>
-        </div>
-      </figure>
+        ),
+      }}
+    >
       <section
         className={classNames(
           'flex',

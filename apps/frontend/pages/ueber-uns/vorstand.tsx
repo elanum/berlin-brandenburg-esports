@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { NextPage } from 'next';
 import Image, { StaticImageData } from 'next/image';
-import { ErinImage, JakobImage, MarliesImage } from '../../components/Images';
+import { ErinImage, JakobImage, JustineImage, MarliesImage } from '../../components/Images';
 import BaseTemplate from '../../templates/BaseTemplate';
 
 const BoardPage: NextPage = () => {
@@ -35,15 +35,20 @@ const BoardPage: NextPage = () => {
         "Hallo, mein Name ist Erin und ich bin seit der Gründungsphase des Vereins dabei und begleite ihn seit jeher. An Computerspielen und eSports habe ich seit meiner Kindheit viel Freude gehabt und kam über Rocket League zum Uni eSport. Abseits von Rocket League spiele ich gerne Coop-Spiele, Rollenspiele und Jump'n'Run. Ich habe einen Abschluss in Statistik und arbeite als Wissenschaftliche:r Mitarbeiter:in, nebenbei studiere ich noch Physik.",
       ],
     },
-    {
-      headline: 'Finanzen',
-      subline: 'Zuständig für die Rechnungs- und Buchführung des Vereins, Budgetierung sowie Kontoverwaltung.',
-      content: [],
-    },
+    // {
+    //   headline: 'Finanzen',
+    //   subline: 'Zuständig für die Rechnungs- und Buchführung des Vereins, Budgetierung sowie Kontoverwaltung.',
+    //   content: [],
+    // },
     {
       headline: 'Recht',
       subline: 'Zuständig für alle juristischen Belange des Vereins sowie Kommunikation mit Behörden.',
-      content: [],
+      image: { src: JustineImage, alt: 'Justine', className: classNames('object-left-top') },
+      content: [
+        'Ich heiße Justine „teemithoney“, aber nennt mich bitte Ju. Ich bin Vorstandsmitglied für Legal und übernehme zukünftig auch den Bereich HR. Zudem studiere ich Wirtschaftsrecht im letzten Semester und möchte mich danach weiterbilden im Bereich Personalmanagement.',
+        'Ich spiele am liebsten storylastige Playstation Games oder Gemeinschaftsspiele in großer Runde.',
+        'Mein persönliches Ziel für den Verein ist es, einen Ort zu schaffen, an dem Gleichgesinnte sich treffen und zusammen Zeit verbringen können.',
+      ],
     },
     {
       headline: 'Strategie',
