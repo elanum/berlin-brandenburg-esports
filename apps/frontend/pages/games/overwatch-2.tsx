@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import { FaExchangeAlt } from 'react-icons/fa';
 import { GiHealthNormal } from 'react-icons/gi';
 import { RiShieldFill, RiSwordFill } from 'react-icons/ri';
+import { OverwatchHeader } from '../../components/Images';
 import BaseTemplate from '../../templates/BaseTemplate';
 
 interface OverwatchTeam {
@@ -107,9 +108,9 @@ const OverwatchPage: NextPage = () => {
   ];
 
   return (
-    <BaseTemplate title="Overwatch">
+    <BaseTemplate title="Overwatch 2" hero={{ ...OverwatchHeader, alt: 'Overwatch 2' }}>
       <section>
-        <h1>Overwatch</h1>
+        <h1>Overwatch 2</h1>
         <p>
           Wir möchten in der Overwatch Abteilung kompetitives wie casual Teamplay unterstützen. Unsere Teams nehmen
           regelmäßig an studentischen und anderen Turnieren teil. Unsere besten Spieler stehen dabei für Coaching zur

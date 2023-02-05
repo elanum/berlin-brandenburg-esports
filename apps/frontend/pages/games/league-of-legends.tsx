@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
+import { LeagueOfLegendsHeader } from '../../components/Images';
 import BaseTemplate from '../../templates/BaseTemplate';
 
 const LeagueOfLegendsPage: NextPage = () => {
   return (
-    <BaseTemplate title="League of Legends">
+    <BaseTemplate title="League of Legends" hero={{ ...LeagueOfLegendsHeader, alt: 'League of Legends' }}>
       <section>
         <h1>League of Legends</h1>
         <p>Der League of Legends Bereich gehört neben Overwatch zu den größten in BBE.</p>

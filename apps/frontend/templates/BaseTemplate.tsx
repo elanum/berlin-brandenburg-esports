@@ -53,14 +53,29 @@ const BaseTemplate = ({ className, children, hero, ...seo }: BaseTemplateProps):
         <Navbar />
         {hero && (
           <figure className={classNames('relative', 'mt-6')}>
-            <Image priority src={hero} alt={alt} className={classNames('h-96', 'object-cover', heroClassName)} />
+            <Image
+              priority
+              src={hero}
+              alt={alt}
+              className={classNames('h-96', 'object-cover', 'w-full', heroClassName)}
+            />
             {content && (
               <div className={classNames('md:absolute', 'inset-0', 'flex', 'items-center', 'container')}>{content}</div>
             )}
           </figure>
         )}
       </header>
-      <main className={classNames('flex-grow', 'relative', 'bg-gray-800', 'container', 'my-6', className)}>
+      <main
+        className={classNames(
+          'flex-grow',
+          'relative',
+          'bg-gray-800',
+          'container',
+          '2xl:max-w-screen-xl',
+          'my-6',
+          className
+        )}
+      >
         {children}
       </main>
       <footer>

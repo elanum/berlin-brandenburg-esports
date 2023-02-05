@@ -1,9 +1,10 @@
 import { NextPage } from 'next';
+import { F1Header } from '../../components/Images';
 import BaseTemplate from '../../templates/BaseTemplate';
 
 const F1SimracingPage: NextPage = () => {
   return (
-    <BaseTemplate title="F1/Simracing">
+    <BaseTemplate title="F1/Simracing" hero={{ ...F1Header, alt: 'F1 2022' }}>
       <section>
         <h1>F1/Simracing</h1>
         <p>
