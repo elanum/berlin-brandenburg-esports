@@ -18,53 +18,49 @@ const HomePage: NextPage = () => {
 
   return (
     <BaseTemplate className={classNames('flex', 'flex-col')}>
-      <section id="header-image" className={classNames('pt-6', 'relative')}>
-        <figure className={classNames('relative')}>
-          <Image
-            src={PlayerImage}
-            alt="Player"
-            height={300}
-            priority
+      <figure className={classNames('relative', 'pt-6')}>
+        <Image
+          src={PlayerImage}
+          alt="Player"
+          height={300}
+          priority
+          className={classNames(
+            'object-cover',
+            'w-full',
+            'h-96',
+            'border-y-2',
+            'border-primary-500',
+            '-scale-x-100',
+            'object-[30%_30%]'
+          )}
+        />
+        <div className={classNames('md:absolute', 'inset-0', 'flex', 'items-center')}>
+          <div
             className={classNames(
-              'object-cover',
+              'p-10',
+              'md:m-10',
+              'bg-black',
+              'bg-opacity-70',
               'w-full',
-              'h-96',
-              'border-y-2',
-              'border-primary-500',
-              '-scale-x-100',
-              'object-[30%_30%]'
+              'lg:w-1/2',
+              'text-center',
+              'flex',
+              'flex-col',
+              'gap-10'
             )}
-          />
-          <div className={classNames('md:absolute', 'inset-0', 'flex', 'items-center')}>
-            <div
-              className={classNames(
-                'p-10',
-                'md:m-10',
-                'bg-black',
-                'bg-opacity-70',
-                'w-full',
-                'lg:w-1/2',
-                'text-center',
-                'flex',
-                'flex-col',
-                'gap-10'
-              )}
-            >
-              <h1 className={classNames('font-semibold', 'text-primary-500', 'text-2xl')}>
-                Willkommen auf unserer Website!
-              </h1>
-              <p>
-                Wir haben Berlin - Brandenburg eSports e.V. für Gaming - begeisterte Menschen in Berlin - Brandenburg
-                gegründet.
-              </p>
-              <p>
-                Unser Ziel ist es den eSport in und um Berlin zu stärken und eine Anlaufstelle, besonders für
-                Studierende, zu schaffen.
-              </p>
-            </div>
+          >
+            <h1 className={classNames('text-2xl')}>Willkommen auf unserer Website!</h1>
+            <p className={classNames('mb-0')}>
+              Wir haben Berlin - Brandenburg eSports e.V. für Gaming - begeisterte Menschen in Berlin - Brandenburg
+              gegründet.
+            </p>
+            <p className={classNames('mb-0')}>
+              Unser Ziel ist es den eSport in und um Berlin zu stärken und eine Anlaufstelle, besonders für Studierende,
+              zu schaffen.
+            </p>
           </div>
-        </figure>
-      </section>
+        </div>
+      </figure>
       <section
         className={classNames(
           'flex',
@@ -77,8 +73,7 @@ const HomePage: NextPage = () => {
           'relative',
           'inset-0',
           'gap-6',
-          'text-center',
-          'p-6'
+          'text-center'
         )}
       >
         <IoIosConstruct className={classNames('text-7xl', 'text-gray-300')} />
