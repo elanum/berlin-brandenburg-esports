@@ -11,17 +11,24 @@ const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
 
   return (
     <motion.div
-      className={classNames('cursor-pointer', 'w-full', 'flex', 'relative', 'text-center')}
+      className={classNames('w-full', 'flex', 'relative', 'text-center', 'select-none', 'group')}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       onTouchStart={() => setOpen(!open)}
       onTouchMove={() => setOpen(false)}
     >
       <span
-        className={classNames('hover:text-gray-800', 'hover:bg-gray-200', 'p-1', 'transition-colors', 'w-full', {
-          [classNames('text-gray-800', 'bg-gray-200')]: open,
-          'text-primary-500': pathname.length > 2 && pathname.includes(href),
-        })}
+        className={classNames(
+          'group-hover:text-gray-800',
+          'group-hover:bg-gray-200',
+          'p-2',
+          'transition-colors',
+          'w-full',
+          {
+            [classNames('text-gray-800', 'bg-gray-200')]: open,
+            'text-primary-500': pathname.length > 2 && pathname.includes(href),
+          }
+        )}
       >
         {title}
       </span>
@@ -61,7 +68,7 @@ const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
               >
                 <Link
                   href={href}
-                  className={classNames('w-full', 'px-3', 'py-2', {
+                  className={classNames('w-full', 'px-4', 'py-3', {
                     'text-primary-500': pathname === href,
                   })}
                 >
@@ -92,7 +99,7 @@ const Navbar = (): JSX.Element => {
                   'hover:bg-gray-200',
                   'transition-colors',
                   'hover:text-gray-800',
-                  'p-1',
+                  'p-2',
                   { 'text-primary-500': pathname === href }
                 )}
                 href={href}

@@ -65,7 +65,17 @@ const BaseTemplate = ({ className, children, hero, ...seo }: BaseTemplateProps):
           </figure>
         )}
       </header>
-      <main className={classNames('flex-grow', 'relative', 'bg-gray-800', 'container', 'my-6', className)}>
+      <main
+        className={classNames(
+          'flex-grow',
+          'relative',
+          'bg-gray-800',
+          'container',
+          '2xl:max-w-screen-xl',
+          'my-6',
+          className
+        )}
+      >
         {children}
       </main>
       <footer>

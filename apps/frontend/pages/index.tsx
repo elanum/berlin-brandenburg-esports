@@ -26,7 +26,7 @@ const HomePage: NextPage = () => {
           <div
             className={classNames(
               'p-10',
-              'md:m-10',
+              'md:my-10',
               'bg-black',
               'bg-opacity-70',
               'w-full',

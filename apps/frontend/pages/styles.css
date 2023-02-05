@@ -10,11 +10,11 @@
   }
 
   p {
-    @apply mb-2;
+    @apply mb-2 leading-relaxed;
   }
 
   section {
-    @apply p-6 border-b border-primary-500 last:border-b-0;
+    @apply p-12 border-b border-primary-500 last:border-b-0;
   }
 
   ul {
@@ -39,7 +39,7 @@
   }
 
   h1 {
-    @apply text-2xl;
+    @apply text-4xl;
   }
 
   hgroup {

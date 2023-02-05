@@ -5,5 +5,5 @@ export { default as JakobImage } from '../../public/images/jakob.webp';
 export { default as JustineImage } from '../../public/images/justine.webp';
 export { default as LeagueOfLegendsHeader } from '../../public/images/lol-header.jpeg';
 export { default as MarliesImage } from '../../public/images/marlies.webp';
-export { default as OverwatchHeader } from '../../public/images/ow-header.png';
+export { default as OverwatchHeader } from '../../public/images/ow-header.webp';
 export { default as PlayerImage } from '../../public/images/player.webp';
