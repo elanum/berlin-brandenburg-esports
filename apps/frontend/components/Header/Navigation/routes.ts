@@ -23,8 +23,8 @@ const routes: Route[] = [
         href: '/games/league-of-legends',
       },
       {
-        label: 'Overwatch',
-        href: '/games/overwatch',
+        label: 'Overwatch 2',
+        href: '/games/overwatch-2',
       },
       {
         label: 'F1/Simracing',
