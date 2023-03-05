@@ -1,20 +1,14 @@
 import classNames from 'classnames';
 import { NextPage } from 'next';
-import { IconType } from 'react-icons';
-import { FaDiscord, FaEnvelope, FaInstagram, FaTwitch, FaTwitter } from 'react-icons/fa';
-import { IoIosConstruct } from 'react-icons/io';
+import { FaCalendar, FaDesktop, FaDumbbell, FaMicroscope, FaTrophy, FaUsers } from 'react-icons/fa';
+import IconBox from '../components/IconBox';
 import { PlayerImage } from '../components/Images';
+import NumberBox from '../components/NumberBox';
+import TeamsSlider from '../components/Slider/TeamsSlider';
+import Twitch from '../components/TwitchEmbed';
 import BaseTemplate from '../templates/BaseTemplate';
 
 const HomePage: NextPage = () => {
-  const links: Array<{ label: string; href: string; Icon: IconType }> = [
-    { label: 'Discord', href: 'https://discord.gg/3HCzRgChHs', Icon: FaDiscord },
-    { label: 'Instagram', href: 'https://instagram.com/berlin_brandenburg_esports', Icon: FaInstagram },
-    { label: 'Twitter', href: 'https://twitter.com/bbesports_ev', Icon: FaTwitter },
-    { label: 'Twitch', href: 'https://twitch.tv/bbesports_ev', Icon: FaTwitch },
-    { label: 'Email', href: 'mailto:info@bbesports.de', Icon: FaEnvelope },
-  ];
-
   return (
     <BaseTemplate
       className={classNames('flex', 'flex-col')}
@@ -22,58 +16,53 @@ const HomePage: NextPage = () => {
         ...PlayerImage,
         alt: 'Willkommen',
         className: classNames('-scale-x-100', 'object-[30%_30%]'),
-        content: (
-          <div
-            className={classNames(
-              'p-10',
-              'md:my-10',
-              'bg-black',
-              'bg-opacity-70',
-              'w-full',
-              'lg:w-1/2',
-              'text-center',
-              'flex',
-              'flex-col',
-              'gap-10'
-            )}
-          >
-            <h1 className={classNames('text-2xl')}>Willkommen auf unserer Website!</h1>
-            <p className={classNames('mb-0')}>
-              Wir haben Berlin - Brandenburg eSports e.V. für Gaming - begeisterte Menschen in Berlin - Brandenburg
-              gegründet.
-            </p>
-            <p className={classNames('mb-0')}>
-              Unser Ziel ist es den eSport in und um Berlin zu stärken und eine Anlaufstelle, besonders für Studierende,
-              zu schaffen.
-            </p>
-          </div>
-        ),
       }}
     >
-      <section
-        className={classNames(
-          'flex',
-          'flex-col',
-          'flex-grow',
-          'justify-center',
-          'items-center',
-          'w-full',
-          'h-full',
-          'relative',
-          'inset-0',
-          'gap-6',
-          'text-center'
-        )}
-      >
-        <IoIosConstruct className={classNames('text-7xl', 'text-gray-300')} />
-        <p>Unsere Website befindet sich aktuell noch im Aufbau.</p>
-        <p>Folge uns auf unseren Social Media Kanälen um auf dem aktuellen Stand zu sein:</p>
-        <div className={classNames('flex', 'text-2xl', 'gap-6')}>
-          {links.map(({ Icon, href, label }) => (
-            <a title={label} href={href} key={`social-${href}`} target="_blank" rel="noreferrer noreferrer nofollow">
-              <Icon />
-            </a>
-          ))}
+      <section className={classNames('container', 'text-center', 'py-24')}>
+        <h1>Herzlich Willkommen!</h1>
+        <hr />
+        <p>
+          Wir haben Berlin - Brandenburg eSports e.V. für Gaming - begeisterte Menschen in Berlin - Brandenburg
+          gegründet.
+        </p>
+        <p>
+          Unser Ziel ist es den eSport in und um Berlin zu stärken und eine Anlaufstelle, besonders für Studierende, zu
+          schaffen.
+        </p>
+      </section>
+      <section className={classNames('bg-gray-100', 'text-center', 'py-24')}>
+        <h1 className={classNames('text-black')}>Teams</h1>
+        <div className={classNames('py-4')}>
+          <TeamsSlider />
+        </div>
+      </section>
+      <section className={classNames('bg-white')}>
+        <div className={classNames('container', 'grid', 'grid-cols-1', 'md:grid-cols-4', 'gap-12')}>
+          <NumberBox amount={65} hasMore label="Mitglieder" />
+          <NumberBox amount={15} hasMore label="Teams" />
+          <NumberBox amount={7} label="Games" />
+          <NumberBox amount={4} label="eSport Abteilungen" />
+        </div>
+      </section>
+      <section className={classNames('bg-gray-900', 'text-center', 'py-24')}>
+        <div className={classNames('container')}>
+          <h1>Unsere Angebote</h1>
+          <hr />
+          <div className={classNames('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-12', 'py-12')}>
+            <IconBox icon={FaDesktop} label="Wöchentliche Streams" />
+            <IconBox icon={FaMicroscope} label="Forschung" />
+            <IconBox icon={FaTrophy} label="Turniere" />
+            <IconBox icon={FaCalendar} label="Lokale Events" />
+            <IconBox icon={FaUsers} label="Community" />
+            <IconBox icon={FaDumbbell} label="Training" />
+          </div>
+        </div>
+      </section>
+      <section className={classNames('container', 'text-center', 'py-24')}>
+        <h1>Twitch Stream</h1>
+        <hr />
+        <div className={classNames('flex', 'justify-center')}>
+          <Twitch />
         </div>
       </section>
     </BaseTemplate>

@@ -7,3 +7,6 @@ export { default as LeagueOfLegendsHeader } from '../../public/images/lol-header
 export { default as MarliesImage } from '../../public/images/marlies.webp';
 export { default as OverwatchHeader } from '../../public/images/ow-header.webp';
 export { default as PlayerImage } from '../../public/images/player.webp';
+export { default as RocketLeagueHeader } from '../../public/images/rl-header.jpg';
+export { default as TFTHeader } from '../../public/images/tft-header.jpg';
+export { default as ValorantHeader } from '../../public/images/val-header.jpg';

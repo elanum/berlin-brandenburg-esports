@@ -72,7 +72,8 @@ const BoardPage: NextPage = () => {
             'justify-items-center',
             'md:justify-items-start',
             'items-center',
-            'gap-6'
+            'gap-6',
+            'container'
           )}
         >
           {image && (

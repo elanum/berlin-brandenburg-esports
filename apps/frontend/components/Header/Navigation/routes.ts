@@ -27,6 +27,18 @@ const routes: Route[] = [
         href: '/games/overwatch-2',
       },
       {
+        label: 'Valorant',
+        href: '/games/valorant',
+      },
+      {
+        label: 'Rocket League',
+        href: '/games/rocket-league',
+      },
+      {
+        label: 'Teamfight Tactics',
+        href: '/games/teamfight-tactics',
+      },
+      {
         label: 'F1/Simracing',
         href: '/games/f1-simracing',
       },

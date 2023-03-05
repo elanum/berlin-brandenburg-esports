@@ -46,7 +46,7 @@ const SubRoute = ({ href, label: title, subroutes, setOpen: setSidebar }: SubRou
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ type: 'keyframes' }}
-            className={classNames('unstyled', '!mt-2', '!ml-2', 'overflow-hidden')}
+            className={classNames('mt-2', 'ml-2', 'overflow-hidden')}
           >
             {subroutes.map(({ href, label }) => (
               <li
@@ -90,7 +90,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps): JSX.Element => {
             exit={{ width: 0 }}
             transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
             className={classNames(
-              'md:hidden',
+              'lg:hidden',
               'overflow-scroll',
               'absolute',
               'shadow-lg',
@@ -111,7 +111,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps): JSX.Element => {
               <IoMdClose />
             </IconButton>
 
-            <ul className={classNames('unstyled')}>
+            <ul>
               {routes.map(({ href, label, subroutes = [] }) => (
                 <li
                   key={`sidebar-link-${label}`}
@@ -145,7 +145,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps): JSX.Element => {
             transition={{ type: 'spring', bounce: 0, duration: 0.2 }}
             onClick={() => setOpen((sideBar) => !sideBar)}
             className={classNames(
-              'md:hidden',
+              'lg:hidden',
               'bg-black',
               'bg-opacity-50',
               'backdrop-blur-sm',

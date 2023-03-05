@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { NextPage } from 'next';
 import BaseTemplate from '../../templates/BaseTemplate';
 
@@ -23,7 +24,7 @@ const SocietyPage: NextPage = () => {
   return (
     <BaseTemplate title="Über Uns">
       {sections.map(({ headline, content }) => (
-        <section key={headline}>
+        <section key={headline} className={classNames('container')}>
           <h1>{headline}</h1>
           <p>{content}</p>
         </section>

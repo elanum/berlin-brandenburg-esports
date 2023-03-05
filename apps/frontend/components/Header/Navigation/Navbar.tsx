@@ -3,7 +3,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { RiMenu3Fill } from 'react-icons/ri';
+import Button from '../../Button';
+import IconButton from '../../Button/IconButton';
+import Logo from '../Logo';
 import routes, { Route } from './routes';
+import Sidebar from './Sidebar';
 
 const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
   const { pathname } = useRouter();
@@ -50,8 +55,7 @@ const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
               'z-10',
               'bg-gray-700',
               'shadow-lg',
-              'overflow-hidden',
-              'unstyled'
+              'overflow-hidden'
             )}
           >
             {subroutes.map(({ href, label }) => (
@@ -85,34 +89,50 @@ const SubRoute = ({ href, label: title, subroutes }: Route): JSX.Element => {
 
 const Navbar = (): JSX.Element => {
   const { pathname } = useRouter();
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className={classNames('w-full', 'bg-gray-800', 'hidden', 'md:block')}>
-      <ul className={classNames('container', 'flex', 'justify-between', 'unstyled', '!mx-auto')}>
-        {routes.map(({ href, label, subroutes = [] }) => (
-          <li key={`navbar-link-${label}`} className={classNames('w-full', 'flex', 'mb-0')}>
-            {!subroutes.length ? (
-              <Link
-                className={classNames(
-                  'w-full',
-                  'text-center',
-                  'hover:bg-gray-200',
-                  'transition-colors',
-                  'hover:text-gray-800',
-                  'p-2',
-                  { 'text-primary-500': pathname === href }
-                )}
-                href={href}
-              >
-                {label}
-              </Link>
-            ) : (
-              <SubRoute href={href} label={label} subroutes={subroutes} />
-            )}
+    <header className={classNames('w-full', 'bg-black', 'fixed', 'top-0', 'h-20', 'z-10', 'flex', 'items-center')}>
+      <nav className={classNames('container', 'flex', 'items-center', 'h-full', 'gap-8')}>
+        <Logo className={classNames('flex-grow')} />
+        <Sidebar open={open} setOpen={setOpen} />
+        <ul className={classNames('lg:grid', 'h-full', 'flex-grow', 'grid-cols-4', 'hidden')}>
+          {routes.map(({ href, label, subroutes = [] }) => (
+            <li
+              key={`navbar-link-${label}`}
+              className={classNames('w-full', 'flex', 'mb-0', 'whitespace-nowrap', 'items-center')}
+            >
+              {!subroutes.length ? (
+                <Link
+                  className={classNames(
+                    'w-full',
+                    'text-center',
+                    'hover:bg-gray-200',
+                    'transition-colors',
+                    'hover:text-gray-800',
+                    'p-2',
+                    { 'text-primary-500': pathname === href }
+                  )}
+                  href={href}
+                >
+                  {label}
+                </Link>
+              ) : (
+                <SubRoute href={href} label={label} subroutes={subroutes} />
+              )}
+            </li>
+          ))}
+          <li className={classNames('flex', 'items-center', 'justify-end')}>
+            <Button href="/docs/bbe-antrag.pdf" download target="_blank">
+              Mitglied werden
+            </Button>
           </li>
-        ))}
-      </ul>
-    </nav>
+        </ul>
+        <IconButton className={classNames('lg:hidden')} onClick={() => setOpen(true)}>
+          <RiMenu3Fill />
+        </IconButton>
+      </nav>
+    </header>
   );
 };
 

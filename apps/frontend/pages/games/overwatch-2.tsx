@@ -109,16 +109,18 @@ const OverwatchPage: NextPage = () => {
 
   return (
     <BaseTemplate title="Overwatch 2" hero={{ ...OverwatchHeader, alt: 'Overwatch 2' }}>
-      <section>
+      <section className={classNames('container')}>
         <h1>Overwatch 2</h1>
         <p>
-          Wir möchten in der Overwatch Abteilung kompetitives wie casual Teamplay unterstützen. Unsere Teams nehmen
-          regelmäßig an studentischen und anderen Turnieren teil. Unsere besten Spieler stehen dabei für Coaching zur
-          Verfügung. Für unseren Top Teams bieten wir professionelles Coaching an. Wir organisieren regelmäßige
-          Teamtreffen und Events.
+          Im studentischen Bereich spielen unsere Teams bei Amazon University eSports und in der Uniliga. Insgesamt sind
+          unsere Teams 2 mal Deutsche Hochschulmeister und 3 mal Vizemeister geworden. Unsere besten Spieler nehmen an
+          der Open Division und weiteren Turnieren teil. BBE gehörte 2022 Season 2 zu den Top 24 Teams. Über alle Teams
+          verteilt haben wir jedes Skill Rating vertreten, auch für dich ist etwas dabei. Wenn du etwas lernen und dich
+          verbessern willst, bieten wir dir professionelles 1on1 und Team Coaching, von erfahrenen Spielern und Coaches.
+          Spannende offline Team Events, Inhouse Turniere und Casual Events veranstalten wir regelmäßig.
         </p>
       </section>
-      <section>
+      <section className={classNames('container')}>
         <h1>Teams:</h1>
         <div className={classNames('columns-sm', 'gap-6')}>
           {teams.map(({ name, skill, members, management, tournaments }) => (
@@ -138,7 +140,7 @@ const OverwatchPage: NextPage = () => {
                   <span className={classNames('text-gray-300')}>{skill && `Team Skill: ${skill}K`}</span>
                 </hgroup>
                 <h3 className={classNames('mb-1')}>Spieler</h3>
-                <ul className={classNames('unstyled')}>
+                <ul>
                   <li className={classNames('flex', 'items-center', 'gap-2')}>
                     <RiSwordFill /> {members.dps.join(', ')}
                   </li>
