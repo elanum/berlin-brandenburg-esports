@@ -21,7 +21,7 @@ const Footer = (): JSX.Element => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={classNames('py-6', 'bg-primary-500', 'text-sm')}>
+    <footer className={classNames('py-6', 'bg-primary-500', 'text-sm', 'text-white')}>
       <div className={classNames('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-12', 'container')}>
         <div className={classNames('flex', 'flex-col', 'justify-between', 'text-center', 'md:text-left')}>
           <div>

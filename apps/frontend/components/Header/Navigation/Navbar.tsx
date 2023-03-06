@@ -92,7 +92,19 @@ const Navbar = (): JSX.Element => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className={classNames('w-full', 'bg-black', 'fixed', 'top-0', 'h-20', 'z-10', 'flex', 'items-center')}>
+    <header
+      className={classNames(
+        'w-full',
+        'bg-black',
+        'fixed',
+        'top-0',
+        'h-20',
+        'z-10',
+        'flex',
+        'items-center',
+        'text-white'
+      )}
+    >
       <nav className={classNames('container', 'flex', 'items-center', 'h-full', 'gap-8')}>
         <Logo className={classNames('flex-grow')} />
         <Sidebar open={open} setOpen={setOpen} />

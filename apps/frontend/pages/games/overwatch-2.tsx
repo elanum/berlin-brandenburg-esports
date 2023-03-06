@@ -128,7 +128,7 @@ const OverwatchPage: NextPage = () => {
               <div
                 className={classNames(
                   'rounded-lg',
-                  'bg-gray-900',
+                  'bg-gray-100',
                   'p-4',
                   'shadow-lg',
                   'hover:scale-105',
@@ -137,7 +137,7 @@ const OverwatchPage: NextPage = () => {
               >
                 <hgroup>
                   <h2 className={classNames('text-xl')}>{name}</h2>
-                  <span className={classNames('text-gray-300')}>{skill && `Team Skill: ${skill}K`}</span>
+                  <span className={classNames('text-gray-500')}>{skill && `Team Skill: ${skill}K`}</span>
                 </hgroup>
                 <h3 className={classNames('mb-1')}>Spieler</h3>
                 <ul>
@@ -169,7 +169,7 @@ const OverwatchPage: NextPage = () => {
                 )}
 
                 <h4 className={classNames('text-xl')}>Turniere und Ergebnisse</h4>
-                <ul>
+                <ul className={classNames('ul')}>
                   {tournaments.map(({ name: tname, result }) => (
                     <li key={`${name}-${tname}`}>
                       {tname} - {result}

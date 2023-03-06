@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { NextPage } from 'next';
-import { FaCalendar, FaDesktop, FaDumbbell, FaMicroscope, FaTrophy, FaUsers } from 'react-icons/fa';
+import { FaCalendar, FaDesktop, FaDumbbell, FaGraduationCap, FaTrophy, FaUsers } from 'react-icons/fa';
 import IconBox from '../components/IconBox';
 import { PlayerImage } from '../components/Images';
 import NumberBox from '../components/NumberBox';
@@ -36,7 +36,7 @@ const HomePage: NextPage = () => {
           <TeamsSlider />
         </div>
       </section>
-      <section className={classNames('bg-white')}>
+      <section>
         <div className={classNames('container', 'grid', 'grid-cols-1', 'md:grid-cols-4', 'gap-12')}>
           <NumberBox amount={65} hasMore label="Mitglieder" />
           <NumberBox amount={15} hasMore label="Teams" />
@@ -44,13 +44,13 @@ const HomePage: NextPage = () => {
           <NumberBox amount={4} label="eSport Abteilungen" />
         </div>
       </section>
-      <section className={classNames('bg-gray-900', 'text-center', 'py-24')}>
+      <section className={classNames('bg-black', 'text-center', 'py-24')}>
         <div className={classNames('container')}>
           <h1>Unsere Angebote</h1>
           <hr />
-          <div className={classNames('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-12', 'py-12')}>
+          <div className={classNames('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-12', 'py-12', 'text-white')}>
             <IconBox icon={FaDesktop} label="Wöchentliche Streams" />
-            <IconBox icon={FaMicroscope} label="Forschung" />
+            <IconBox icon={FaGraduationCap} label="Uninetzwerk" />
             <IconBox icon={FaTrophy} label="Turniere" />
             <IconBox icon={FaCalendar} label="Lokale Events" />
             <IconBox icon={FaUsers} label="Community" />
