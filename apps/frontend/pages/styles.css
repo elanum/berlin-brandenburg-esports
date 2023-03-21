@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Poppins:wght@300;600&display=swap';
 @import 'swiper/css';
+@import 'swiper/css/pagination';
 
 @tailwind base;
 @tailwind components;
@@ -60,11 +61,20 @@
 }
 
 @layer components {
+  :root {
+    --swiper-theme-color: #ea2e6d;
+    --swiper-pagination-bottom: 0;
+  }
+
   .button {
     @apply font-play font-normal text-center px-3 py-2 rounded;
 
     &-contained {
       @apply bg-primary-500 hover:bg-primary-600 transition-colors;
     }
+  }
+
+  .swiper {
+    @apply pb-8;
   }
 }

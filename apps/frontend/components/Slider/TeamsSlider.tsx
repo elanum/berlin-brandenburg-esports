@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
-import { Autoplay } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import LeagueOfLegendsLogo from '../../public/images/lol-logo.png';
 import Overwatch2Logo from '../../public/images/ow2-logo.png';
@@ -25,11 +25,12 @@ const TeamsSlider = (): JSX.Element => {
 
   return (
     <Swiper
-      slidesPerView={1.25}
-      breakpoints={{ 640: { slidesPerView: 3.25 } }}
+      slidesPerView={1}
+      breakpoints={{ 640: { slidesPerView: 3 } }}
       autoplay
-      modules={[Autoplay]}
+      modules={[Autoplay, Pagination]}
       className="group"
+      pagination={{ dynamicBullets: true }}
     >
       {slides.map((slide) => (
         <SwiperSlide key={`team-slide-${slide.alt}`}>
